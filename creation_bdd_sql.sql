@@ -59,6 +59,8 @@ CREATE TABLE artisan (
     
     -- Relation avec SPECIALITE
     id_specialite INT NOT NULL,
+
+    top_artisan BOOLEAN DEFAULT FALSE,
     
     -- Clé étrangère vers SPECIALITE
     FOREIGN KEY (id_specialite) REFERENCES specialite(id_specialite)

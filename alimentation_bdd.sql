@@ -57,7 +57,7 @@ INSERT INTO specialite (nom_specialite, id_categorie) VALUES
 -- ALIMENTATION (4 artisans)
 -- ============================================
 
-INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id_specialite) VALUES
+INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web,top_artisan, id_specialite) VALUES
 -- Boucherie Dumont (4.5 → 9/10)
 (
     UUID(),
@@ -66,6 +66,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Lyon',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin. ',
     NULL,
+    FALSE,
     12
 ),
 
@@ -77,6 +78,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Montélimar',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     NULL,
+    TRUE,
     13
 ),
 
@@ -88,6 +90,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Lyon',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://chocolaterie-labbe.fr',
+    TRUE,
     14
 ),
 
@@ -99,13 +102,14 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Lyon',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://truchon-traiteur.fr',
+    FALSE,
     15
 );
 
 -- BÂTIMENT (4 artisans)
 -- ============================================
 
-INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id_specialite) VALUES
+INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web,top_artisan, id_specialite) VALUES
 -- Orville Salmons (5.0 → 10/10)
 (
     UUID(),
@@ -114,6 +118,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Évian',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     NULL,
+    TRUE,
     4
 ),
 
@@ -125,6 +130,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Chamonix',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://mont-blanc-electricite.com',
+    FALSE,
     2
 ),
 
@@ -136,6 +142,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Bourg-en-Bresse',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://boutot-menuiserie.com',
+    FALSE,
     1
 ),
 
@@ -147,13 +154,14 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Vienne',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://plomberie-bellemare.com',
+    FALSE,
     3
 );
 
 -- FABRICATION (3 artisans)
 -- ============================================
 
-INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id_specialite) VALUES
+INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web,top_artisan, id_specialite) VALUES
 -- Claude Quinn (4.2 → 8/10)
 (
     UUID(),
@@ -162,6 +170,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Aix-les-bains',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     NULL,
+    FALSE,
     9
 ),
 
@@ -173,6 +182,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Annecy',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://lecuyer-couture.com',
+    FALSE,
     10
 ),
 
@@ -184,13 +194,14 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Le Puy-en-Velay',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     NULL,
+    FALSE,
     11
 );
 
 -- SERVICES (5 artisans)
 -- ============================================
 
-INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id_specialite) VALUES
+INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web,top_artisan, id_specialite) VALUES
 -- Royden Charbonneau (3.8 → 8/10)
 (
     UUID(),
@@ -199,6 +210,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Saint-Priest',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     NULL,
+    FALSE,
     5
 ),
 
@@ -210,6 +222,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Chambéry',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://coiffure-leola-chambery.fr',
+    FALSE,
     5
 ),
 
@@ -221,6 +234,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Romans-sur-Isère',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://sup-hair.fr',
+    FALSE,
     5
 ),
 
@@ -232,6 +246,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Annonay',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://le-monde-des-fleurs-annonay.fr',
+    FALSE,
     7
 ),
 
@@ -243,6 +258,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Valence',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     NULL,
+    FALSE,
     6
 ),
 
@@ -254,6 +270,7 @@ INSERT INTO artisan (id_artisan, nom, note, localisation, a_propos, site_web, id
     'Valence',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.',
     'https://cm-graphisme.com',
+    FALSE,
     8
 );
 
