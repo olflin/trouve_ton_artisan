@@ -6,6 +6,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const sequelize = require('./config/database');
+const { Categorie, Specialite, Artisan } = require('./models');
 
 const app = express();
 
@@ -13,6 +14,11 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 app.use(cors()); // on resserrera l'origine quand le front sera en place
+
+// Routes
+const categoriesRoutes = require('./routes/categorie');
+
+app.use('/api/categories', categoriesRoutes);
 
 // Route de health-check + test DB
 app.get('/api/health', async (req, res) => {
