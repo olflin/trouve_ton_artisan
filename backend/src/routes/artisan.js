@@ -61,4 +61,30 @@ router.get('/artisans/:id', async (req, res) => {
   }
 });
 
+// GET /api/artisans/top
+router.get('/artisans/top', async (req, res) => {
+  try {
+    const artisans = await Artisan.findAll({
+      where: { top_artisan: true },
+      include: [
+        {
+          model: Specialite,
+          include: [
+            {
+              model: Categorie,
+            },
+          ],
+        },
+      ],
+      order: [['note', 'DESC']],
+      limit: 3,
+    });
+
+    res.json(artisans);
+  } catch (error) {
+    console.error('Erreur GET /api/artisans/top :', error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+
 module.exports = router;
