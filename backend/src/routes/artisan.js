@@ -12,9 +12,11 @@ router.get('/categories/:id/artisans', async (req, res) => {
       include: [
         {
           model: Specialite,
+          required: true,
           include: [
             {
               model: Categorie,
+              required: true,
               where: { id_categorie: id },
             },
           ],
