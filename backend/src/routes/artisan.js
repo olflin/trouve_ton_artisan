@@ -32,4 +32,33 @@ router.get('/categories/:id/artisans', async (req, res) => {
   }
 });
 
+// GET /api/artisans/:id
+router.get('/artisans/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const artisan = await Artisan.findByPk(id, {
+      include: [
+        {
+          model: Specialite,
+          include: [
+            {
+              model: Categorie,
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!artisan) {
+      return res.status(404).json({ message: 'Artisan non trouvé' });
+    }
+
+    res.json(artisan);
+  } catch (error) {
+    console.error('Erreur GET /api/artisans/:id :', error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+
 module.exports = router;
