@@ -123,4 +123,35 @@ router.get('/artisans/:id', async (req, res) => {
   }
 });
 
+// POST /api/artisans/:id/contact
+router.post('/artisans/:id/contact', async (req, res) => {
+  const { id } = req.params;
+  const { nom, email, objet, message } = req.body;
+
+  if (!nom || !email || !objet || !message) {
+    return res.status(400).json({ message: 'Tous les champs sont requis (nom, email, objet, message).' });
+  }
+
+  try {
+    const artisan = await Artisan.findByPk(id);
+
+    if (!artisan) {
+      return res.status(404).json({ message: 'Artisan non trouvé' });
+    }
+
+    // Simulation de l'envoi d'email (pour le devoir)
+    console.log('--- Nouvelle demande de contact ---');
+    console.log('Artisan ID :', id);
+    console.log('Pour :', artisan.nom, '- email :', artisan.email || '(non renseigné)');
+    console.log('De :', nom, '<' + email + '>');
+    console.log('Objet :', objet);
+    console.log('Message :', message);
+
+    return res.status(200).json({ message: 'Votre message a été pris en compte.' });
+  } catch (error) {
+    console.error('Erreur POST /api/artisans/:id/contact :', error);
+    return res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+
 module.exports = router;

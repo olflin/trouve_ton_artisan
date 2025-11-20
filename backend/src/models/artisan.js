@@ -29,6 +29,10 @@ const Artisan = sequelize.define(
       type: DataTypes.STRING(255),
       allowNull: true,
     },
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     photo_url: {
       type: DataTypes.STRING(255),
       allowNull: true,

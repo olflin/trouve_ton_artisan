@@ -60,6 +60,9 @@ CREATE TABLE artisan (
     -- Relation avec SPECIALITE
     id_specialite INT NOT NULL,
 
+    -- email
+    email VARCHAR(150) NOT NULL,
+
     top_artisan BOOLEAN DEFAULT FALSE,
     
     -- Clé étrangère vers SPECIALITE
