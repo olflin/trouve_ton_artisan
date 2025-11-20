@@ -1,0 +1,33 @@
+const express = require('express');
+const { Artisan, Specialite, Categorie } = require('../models');
+
+const router = express.Router();
+
+// GET /api/categories/:id/artisans
+router.get('/categories/:id/artisans', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const artisans = await Artisan.findAll({
+      include: [
+        {
+          model: Specialite,
+          include: [
+            {
+              model: Categorie,
+              where: { id_categorie: id },
+            },
+          ],
+        },
+      ],
+      order: [['note', 'DESC']],
+    });
+
+    res.json(artisans);
+  } catch (error) {
+    console.error('Erreur GET /api/categories/:id/artisans :', error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+
+module.exports = router;

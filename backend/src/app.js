@@ -17,8 +17,10 @@ app.use(cors()); // on resserrera l'origine quand le front sera en place
 
 // Routes
 const categoriesRoutes = require('./routes/categorie');
+const artisansRoutes = require('./routes/artisan');
 
 app.use('/api/categories', categoriesRoutes);
+app.use('/api', artisansRoutes);
 
 // Route de health-check + test DB
 app.get('/api/health', async (req, res) => {
