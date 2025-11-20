@@ -1,4 +1,5 @@
 const express = require('express');
+const { Op } = require('sequelize');
 const { Artisan, Specialite, Categorie } = require('../models');
 
 const router = express.Router();
@@ -54,6 +55,41 @@ router.get('/artisans/top', async (req, res) => {
     res.json(artisans);
   } catch (error) {
     console.error('Erreur GET /api/artisans/top :', error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+
+// GET /api/artisans/recherche?nom=
+router.get('/artisans/recherche', async (req, res) => {
+  const { nom } = req.query;
+
+  if (!nom || nom.trim() === '') {
+    return res.status(400).json({ message: 'Paramètre "nom" requis' });
+  }
+
+  try {
+    const artisans = await Artisan.findAll({
+      where: {
+        nom: {
+          [Op.like]: `%${nom}%`,
+        },
+      },
+      include: [
+        {
+          model: Specialite,
+          include: [
+            {
+              model: Categorie,
+            },
+          ],
+        },
+      ],
+      order: [['note', 'DESC']],
+    });
+
+    res.json(artisans);
+  } catch (error) {
+    console.error('Erreur GET /api/artisans/recherche :', error);
     res.status(500).json({ message: 'Erreur serveur' });
   }
 });
