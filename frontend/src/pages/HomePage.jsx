@@ -34,29 +34,29 @@ function HomePage() {
       </header>
 
       <section className="mb-5">
-        <h2 className="h4 fw-bold mb-3">Comment trouver mon artisan&nbsp;?</h2>
+        <h2 className="h4 fw-bold mb-3 text-primary">Comment trouver mon artisan ?</h2>
         <ol className="list-unstyled ps-0">
-          <li className="d-flex mb-2">
-            <span className="badge bg-primary rounded-circle me-2">1</span>
-            <span>Choisir la catégorie d&apos;artisan dans le menu.</span>
+          <li className="d-flex align-items-center mb-3">
+            <span className="badge bg-primary rounded-circle me-2 step-badge">1</span>
+            <span className='fw-bold'>Choisir la catégorie d'artisan dans le menu.</span>
           </li>
-          <li className="d-flex mb-2">
-            <span className="badge bg-primary rounded-circle me-2">2</span>
-            <span>Choisir un artisan.</span>
+          <li className="d-flex align-items-center mb-3">
+            <span className="badge bg-primary rounded-circle me-2 step-badge">2</span>
+            <span className='fw-bold'>Choisir un artisan.</span>
           </li>
-          <li className="d-flex mb-2">
-            <span className="badge bg-primary rounded-circle me-2">3</span>
-            <span>Le contacter via le formulaire de contact.</span>
+          <li className="d-flex align-items-center mb-3">
+            <span className="badge bg-primary rounded-circle me-2 step-badge">3</span>
+            <span className='fw-bold'>Le contacter via le formulaire de contact.</span>
           </li>
-          <li className="d-flex mb-2">
-            <span className="badge bg-primary rounded-circle me-2">4</span>
-            <span>Une réponse sera apportée sous 48h.</span>
+          <li className="d-flex align-items-center mb-3">
+            <span className="badge bg-primary rounded-circle me-2 step-badge">4</span>
+            <span className='fw-bold'>Une réponse sera apportée sous 48h.</span>
           </li>
         </ol>
       </section>
 
       <section className="mb-4">
-        <h2 className="h4 fw-bold mb-3">Les trois artisans du mois</h2>
+        <h2 className="h4 fw-bold mb-3 text-primary">Les trois artisans du mois</h2>
 
         {loading && <p>Chargement des artisans du mois...</p>}
         {error && !loading && <p className="text-danger small">{error}</p>}

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import '../styles/components/ArtisanCard.css'
 
 function renderStars(noteSur10) {
   // note est sur 10 en base, on l'affiche sur 5 étoiles
@@ -8,20 +9,20 @@ function renderStars(noteSur10) {
 
 function ArtisanCard({ id, nom, note, specialite, localisation, topArtisan = false }) {
   const content = (
-    <article className="card shadow-sm mb-3">
+    <article className={`card mb-5 ${topArtisan ? 'top-artisan' : ''}`}>
       <div className="card-body text-center">
-        <h3 className="h5 card-title mb-2 text-uppercase">{nom}</h3>
+        <h3 className="h3 card-title mb-3 text-uppercase">{nom}</h3>
 
-        <div className="mb-1" aria-label={`Note ${note}/10`}>
+        {topArtisan && (
+          <p className="mb-3 fw-bold text-uppercase small text-dark">TOP artisan</p>
+        )}
+
+        <div className="mb-3" aria-label={`Note ${note}/10`}>
           <span className="fw-bold small">{renderStars(note)}</span>
         </div>
 
-        {topArtisan && (
-          <p className="mb-1 text-success text-uppercase small fw-bold">TOP artisan</p>
-        )}
-
-        <p className="mb-1 small">
-          <span className="text-muted">Badge spécialité :</span> {specialite || '—'}
+        <p className="mb-3 small">
+          <span className="text-muted">Spécialité :</span> {specialite || '—'}
         </p>
 
         <p className="mb-3 small text-muted">{localisation || 'Localisation inconnue'}</p>

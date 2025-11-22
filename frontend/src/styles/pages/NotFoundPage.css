@@ -1,0 +1,72 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: #004978; /* Primary Dark Blue */
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 100; /* Thin */
+  line-height: 1;
+  margin: 0;
+  position: relative;
+  padding: 20px 40px;
+  color: #333; /* Dark Gray/Black */
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  /* Simulate the box look partially if needed, but simple lines match the minimal aesthetic */
+}
+
+.error-code::before {
+  /* Optional: Vertical lines for the bracket effect if desired */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 40px; /* Short vertical line */
+  background: #333;
+}
+
+.error-code::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 40px;
+  background: #333;
+}
+
+/* We might need right brackets too? */
+.error-bracket-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 40px;
+  background: #333;
+}
+
+.error-bracket-right::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  height: 40px;
+  background: #333;
+}
+
+.error-message {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  text-transform: none;
+  color: #004978;
+}

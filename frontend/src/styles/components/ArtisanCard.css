@@ -1,0 +1,22 @@
+/* Mise en page automatique */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    gap: 12px;
+
+    background: var(--graylight);
+    border: 1px solid var(--graydark);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--primarybluedark); /* Blue for hover */
+}
+
+.card.top-artisan {
+    border-color: var(--green); /* Green for TOP artisan */
+}

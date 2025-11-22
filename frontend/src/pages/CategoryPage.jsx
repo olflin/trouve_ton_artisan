@@ -43,7 +43,7 @@ function CategoryPage() {
   return (
     <section>
       <header className="mb-4 text-center text-md-start">
-        <h1 className="h3 fw-bold mb-1">{label}</h1>
+        <h1 className="h3 fw-bold mb-1 text-primary">{label}</h1>
         <p className="text-muted mb-0">Artisans disponibles dans cette catégorie.</p>
       </header>
 

@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { apiGet, apiPost } from '../api/client'
 
+function renderStars(noteSur10) {
+  const noteSur5 = Math.round((noteSur10 || 0) / 2)
+  return '★★★★★☆☆☆☆☆'.slice(5 - noteSur5, 10 - noteSur5)
+}
+
 function ArtisanPage() {
   const { id } = useParams()
 
@@ -90,7 +95,7 @@ function ArtisanPage() {
   return (
     <section className="artisan-page">
       <header className="mb-4 text-center">
-        <h1 className="h3 fw-bold mb-3">Fiche artisan</h1>
+        <h1 className="h3 fw-bold mb-3 text-primary">Fiche artisan</h1>
       </header>
 
       <div className="text-center mb-4">
@@ -104,7 +109,7 @@ function ArtisanPage() {
       <section className="mb-4 text-center">
         <h2 className="h4 text-uppercase mb-2">{artisan.nom}</h2>
         <div className="mb-1" aria-label={`Note ${artisan.note}/10`}>
-          <span className="fw-bold small">{artisan.note}/10</span>
+          <span className="fw-bold small">{renderStars(artisan.note)}</span>
         </div>
         <p className="mb-1 small">
           <span className="text-muted">Spécialité :</span> {artisan.Specialite?.nom_specialite || '—'}
@@ -112,12 +117,12 @@ function ArtisanPage() {
         <p className="mb-3 small text-muted">{artisan.localisation || 'Localisation inconnue'}</p>
       </section>
       <section className="mb-4">
-        <h3 className="h5 fw-bold mb-2">À propos</h3>
+        <h3 className="h5 fw-bold mb-2 text-primary">À propos</h3>
         <p className="mb-0 small">{artisan.a_propos || "Cet artisan n'a pas encore renseigné de description."}</p>
       </section>
 
       <section className="mb-5">
-        <h3 className="h5 fw-bold mb-3 text-center text-md-start">Formulaire de contact</h3>
+        <h3 className="h5 fw-bold mb-3 text-center text-md-start text-primary">Formulaire de contact</h3>
         {formError && <p className="text-danger small mb-2">{formError}</p>}
         {successMessage && <p className="text-success small mb-2">{successMessage}</p>}
 
