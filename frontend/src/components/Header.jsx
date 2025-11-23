@@ -1,10 +1,18 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { apiGet } from '../api/client'
 import '../styles/components/header.css'
 
 function Header() {
   const navigate = useNavigate()
   const [search, setSearch] = useState('')
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    apiGet('/categories')
+      .then((data) => setCategories(data))
+      .catch((err) => console.error('Erreur chargement menu :', err))
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -42,26 +50,13 @@ function Header() {
 
           <div className="collapse navbar-collapse" id="mainNavbar">
             <ul className="navbar-nav mx-auto mb-2 mb-md-0 w-50 justify-content-around">
-              <li className="nav-item">
-                <NavLink to="/categorie/1" className="nav-link">
-                  Bâtiment
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/categorie/2" className="nav-link">
-                  Services
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/categorie/3" className="nav-link">
-                  Fabrication
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/categorie/4" className="nav-link">
-                  Alimentation
-                </NavLink>
-              </li>
+              {categories.map((cat) => (
+                <li className="nav-item" key={cat.id_categorie}>
+                  <NavLink to={`/categorie/${cat.id_categorie}`} className="nav-link">
+                    {cat.nom_categorie}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
 
             <form className="d-flex" onSubmit={handleSubmit}>
