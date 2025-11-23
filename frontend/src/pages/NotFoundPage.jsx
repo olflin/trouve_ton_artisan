@@ -1,6 +1,9 @@
 import '../styles/pages/NotFoundPage.css'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 function NotFoundPage() {
+  usePageTitle('404 - Page non trouvée - Trouve ton artisan')
+
   return (
     <section className="not-found-container d-flex flex-column flex-lg-row align-items-center justify-content-center gap-5">
       <div className="error-code error-bracket-right">

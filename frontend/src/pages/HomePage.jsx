@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { apiGet } from '../api/client'
 import ArtisanCard from '../components/ArtisanCard'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 function HomePage() {
+  usePageTitle('Trouve ton artisan - Accueil')
   const [topArtisans, setTopArtisans] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)

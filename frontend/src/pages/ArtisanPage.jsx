@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { apiGet, apiPost } from '../api/client'
 import '../styles/components/ArtisanCard.css'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 function renderStars(noteSur10) {
   const noteSur5 = Math.round((noteSur10 || 0) / 2)
@@ -41,6 +42,8 @@ function ArtisanPage() {
       isMounted = false
     }
   }, [id])
+
+  usePageTitle(artisan ? `${artisan.nom} - Trouve ton artisan` : 'Chargement... - Trouve ton artisan')
 
   const handleChange = (e) => {
     const { name, value } = e.target

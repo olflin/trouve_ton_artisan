@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { apiGet } from '../api/client'
 import ArtisanCard from '../components/ArtisanCard'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const CATEGORY_LABELS = {
   1: 'Bâtiment',
@@ -39,6 +40,7 @@ function CategoryPage() {
   }, [id])
 
   const label = CATEGORY_LABELS[id] || `Catégorie ${id}`
+  usePageTitle(`${label} - Trouve ton artisan`)
 
   return (
     <section>
