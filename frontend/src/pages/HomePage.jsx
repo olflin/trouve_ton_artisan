@@ -74,7 +74,7 @@ function HomePage() {
         {!loading && !error && (
           <div className="row">
             {topArtisans.map((artisan) => (
-              <div key={artisan.id_artisan} className="col-12 col-lg-4">
+              <div key={artisan.id_artisan} className="col-12 col-lg-4 mb-4">
                 <ArtisanCard
                   id={artisan.id_artisan}
                   nom={artisan.nom}

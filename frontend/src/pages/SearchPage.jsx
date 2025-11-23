@@ -65,7 +65,7 @@ function SearchPage() {
       {hasQuery && !loading && !error && artisans.length > 0 && (
         <div className="row">
           {artisans.map((artisan) => (
-            <div key={artisan.id_artisan} className="col-12 col-lg-4">
+            <div key={artisan.id_artisan} className="col-12 col-lg-4 mb-4">
               <ArtisanCard
                 id={artisan.id_artisan}
                 nom={artisan.nom}

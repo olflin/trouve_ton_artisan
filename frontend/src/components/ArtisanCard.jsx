@@ -9,8 +9,8 @@ function renderStars(noteSur10) {
 
 function ArtisanCard({ id, nom, note, specialite, localisation, topArtisan = false }) {
   const content = (
-    <article className={`card mb-5 ${topArtisan ? 'top-artisan' : ''}`}>
-      <div className="card-body text-center">
+    <article className={`card h-100 ${topArtisan ? 'top-artisan' : ''}`}>
+      <div className="card-body text-center d-flex flex-column justify-content-center">
         <h3 className="h3 card-title mb-3 text-uppercase">{nom}</h3>
 
         {topArtisan && (
@@ -35,7 +35,7 @@ function ArtisanCard({ id, nom, note, specialite, localisation, topArtisan = fal
   }
 
   return (
-    <Link to={`/artisans/${id}`} className="text-decoration-none text-reset">
+    <Link to={`/artisans/${id}`} className="text-decoration-none text-reset h-100 d-block">
       {content}
     </Link>
   )
