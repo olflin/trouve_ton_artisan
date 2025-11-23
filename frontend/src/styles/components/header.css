@@ -1,0 +1,7 @@
+@media (min-width: 768px) {
+  .navbar-expand-lg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

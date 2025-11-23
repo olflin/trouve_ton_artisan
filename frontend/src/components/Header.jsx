@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import '../styles/components/header.css'
 
 function Header() {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ function Header() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-xl bg-body-tertiary fixed-top">
+      <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top">
         <div className="container-fluid">
             <Link to="/" className="navbar-brand d-flex align-items-center">
                 <img
@@ -40,7 +41,7 @@ function Header() {
 
 
           <div className="collapse navbar-collapse" id="mainNavbar">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav mx-auto mb-2 mb-md-0 w-50 justify-content-around">
               <li className="nav-item">
                 <NavLink to="/categorie/1" className="nav-link">
                   Bâtiment

@@ -42,8 +42,8 @@ function CategoryPage() {
 
   return (
     <section>
-      <header className="mb-4 text-center text-md-start">
-        <h1 className="h3 fw-bold mb-1 text-primary">{label}</h1>
+      <header className="mb-4 text-center">
+        <h1 className="h1 fw-bold mb-1">{label}</h1>
         <p className="text-muted mb-0">Artisans disponibles dans cette catégorie.</p>
       </header>
 
@@ -55,17 +55,18 @@ function CategoryPage() {
       )}
 
       {!loading && !error && artisans.length > 0 && (
-        <div>
+        <div className="row">
           {artisans.map((artisan) => (
-            <ArtisanCard
-              key={artisan.id_artisan}
-              id={artisan.id_artisan}
-              nom={artisan.nom}
-              note={artisan.note}
-              specialite={artisan.Specialite?.nom_specialite}
-              localisation={artisan.localisation}
-              topArtisan={artisan.top_artisan}
-            />
+            <div key={artisan.id_artisan} className="col-12 col-lg-4">
+              <ArtisanCard
+                id={artisan.id_artisan}
+                nom={artisan.nom}
+                note={artisan.note}
+                specialite={artisan.Specialite?.nom_specialite}
+                localisation={artisan.localisation}
+                topArtisan={artisan.top_artisan}
+              />
+            </div>
           ))}
         </div>
       )}

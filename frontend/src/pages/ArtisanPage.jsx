@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { apiGet, apiPost } from '../api/client'
+import '../styles/components/ArtisanCard.css'
 
 function renderStars(noteSur10) {
   const noteSur5 = Math.round((noteSur10 || 0) / 2)
@@ -95,101 +96,84 @@ function ArtisanPage() {
   return (
     <section className="artisan-page">
       <header className="mb-4 text-center">
-        <h1 className="h3 fw-bold mb-3 text-primary">Fiche artisan</h1>
+        <h1 className="h1 fw-bold mb-3">Fiche artisan</h1>
       </header>
 
-      <div className="text-center mb-4">
-        <img
-          src="/favicon.png"
-          alt="Avatar artisan"
-          style={{ width: '120px', height: '120px', objectFit: 'contain' }}
-        />
+      <div className="row mb-5">
+        <div className="col-12 col-lg-6 mb-4 mb-lg-0 text-center">
+          <img
+            src="/favicon.png"
+            alt="Avatar artisan"
+            style={{ width: '200px', height: '200px', objectFit: 'contain' }}
+          />
+        </div>
+        <div className="col-12 col-lg-6">
+           <article className="card h-100">
+              <div className="card-body text-center d-flex flex-column justify-content-center">
+                <h3 className="h3 text-uppercase mb-2">{artisan.nom}</h3>
+                <div className="mb-1" aria-label={`Note ${artisan.note}/10`}>
+                  <span className="fw-bold small">{renderStars(artisan.note)}</span>
+                </div>
+                <p className="mb-1 small">
+                  <span className="text-muted">Spécialité :</span> {artisan.Specialite?.nom_specialite || '—'}
+                </p>
+                <p className="mb-0 small text-muted">{artisan.localisation || 'Localisation inconnue'}</p>
+              </div>
+           </article>
+        </div>
       </div>
 
-      <section className="mb-4 text-center">
-        <h2 className="h4 text-uppercase mb-2">{artisan.nom}</h2>
-        <div className="mb-1" aria-label={`Note ${artisan.note}/10`}>
-          <span className="fw-bold small">{renderStars(artisan.note)}</span>
+      <div className="row">
+        <div className="col-12 col-lg-6 mb-4 mb-lg-0">
+           <section>
+            <h2 className="h2 fw-bold mb-3">Formulaire de contact</h2>
+            {formError && <p className="text-danger small mb-2">{formError}</p>}
+            {successMessage && <p className="text-success small mb-2">{successMessage}</p>}
+
+            <form onSubmit={handleSubmit} className="row g-3">
+              <div className="col-12">
+                <label htmlFor="contact-nom" className="form-label small">Nom</label>
+                <input id="contact-nom" name="nom" type="text" className="form-control" value={form.nom} onChange={handleChange} />
+              </div>
+
+              <div className="col-12">
+                <label htmlFor="contact-email" className="form-label small">Email</label>
+                <input id="contact-email" name="email" type="email" className="form-control" value={form.email} onChange={handleChange} />
+              </div>
+
+              <div className="col-12">
+                <label htmlFor="contact-objet" className="form-label small">Objet</label>
+                <input id="contact-objet" name="objet" type="text" className="form-control" value={form.objet} onChange={handleChange} />
+              </div>
+
+              <div className="col-12">
+                <label htmlFor="contact-message" className="form-label small">Message</label>
+                <textarea id="contact-message" name="message" className="form-control" rows="4" value={form.message} onChange={handleChange} />
+              </div>
+
+              <div className="col-12">
+                <button type="submit" className="btn btn-primary" disabled={sending}>
+                  {sending ? 'Envoi en cours...' : 'Envoyer' }
+                </button>
+              </div>
+            </form>
+          </section>
         </div>
-        <p className="mb-1 small">
-          <span className="text-muted">Spécialité :</span> {artisan.Specialite?.nom_specialite || '—'}
-        </p>
-        <p className="mb-3 small text-muted">{artisan.localisation || 'Localisation inconnue'}</p>
-      </section>
-      <section className="mb-4">
-        <h3 className="h5 fw-bold mb-2 text-primary">À propos</h3>
-        <p className="mb-0 small">{artisan.a_propos || "Cet artisan n'a pas encore renseigné de description."}</p>
-      </section>
 
-      <section className="mb-5">
-        <h3 className="h5 fw-bold mb-3 text-center text-md-start text-primary">Formulaire de contact</h3>
-        {formError && <p className="text-danger small mb-2">{formError}</p>}
-        {successMessage && <p className="text-success small mb-2">{successMessage}</p>}
-
-        <form onSubmit={handleSubmit} className="row g-3">
-          <div className="col-12 col-md-6">
-            <label htmlFor="contact-nom" className="form-label small">
-              Nom
-            </label>
-            <input
-              id="contact-nom"
-              name="nom"
-              type="text"
-              className="form-control"
-              value={form.nom}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-12 col-md-6">
-            <label htmlFor="contact-email" className="form-label small">
-              Email
-            </label>
-            <input
-              id="contact-email"
-              name="email"
-              type="email"
-              className="form-control"
-              value={form.email}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-12">
-            <label htmlFor="contact-objet" className="form-label small">
-              Objet
-            </label>
-            <input
-              id="contact-objet"
-              name="objet"
-              type="text"
-              className="form-control"
-              value={form.objet}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-12">
-            <label htmlFor="contact-message" className="form-label small">
-              Message
-            </label>
-            <textarea
-              id="contact-message"
-              name="message"
-              className="form-control"
-              rows="4"
-              value={form.message}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-12">
-            <button type="submit" className="btn btn-primary" disabled={sending}>
-              {sending ? 'Envoi en cours...' : 'Envoyer' }
-            </button>
-          </div>
-        </form>
-      </section>
+        <div className="col-12 col-lg-6">
+          <section>
+            <h2 className="h2 fw-bold mb-2">À propos</h2>
+            <p className="mb-0 small">{artisan.a_propos || "Cet artisan n'a pas encore renseigné de description."}</p>
+             {artisan.website && (
+                <p className="mt-3 small">
+                    <a href={artisan.website} target="_blank" rel="noopener noreferrer" className="text-primary">
+                        {artisan.website}
+                    </a>
+                </p>
+             )}
+          </section>
+        </div>
+      </div>
 
     </section>
   )
