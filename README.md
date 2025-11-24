@@ -45,6 +45,20 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre
 2.  Exécutez le script **`creation_bdd_sql.sql`** situé à la racine du projet. Ce script va créer la base de données `trouve_ton_artisan` et les tables nécessaires.
 3.  Exécutez ensuite le script **`alimentation_bdd.sql`** pour insérer le jeu de données de test (catégories, spécialités, artisans).
 
+#### Images artisans (`photo_url`)
+
+Les photos d'artisans ne pointent pas vers un chemin local Windows, mais vers des URLs publiques servies par le frontend.
+
+Les fichiers d'images sont placés dans le dossier `frontend/public/img`. Ils sont ensuite accessibles via des chemins relatifs à la racine du site. Quelques exemples de valeurs possibles pour la colonne `photo_url` de la table `artisan` :
+
+- `/img/artisan1.png`
+- `/img/artisan2.jpg`
+- `/img/Logo.png`
+
+En développement, ces chemins correspondent par exemple à `http://localhost:5173/img/artisan1.png`, et en production à `https://trouve-ton-artisan-alpha.vercel.app/img/artisan1.png`.
+
+Sur la fiche artisan, le frontend utilise `photo_url` pour afficher l'image. Si ce champ est vide ou `NULL`, une image par défaut (`/favicon.png`) est automatiquement utilisée.
+
 ### 2. Backend (API)
 
 L'API gère les données et communique avec la base de données MySQL.
