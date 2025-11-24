@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container-fluid">
             <Link to="/" className="navbar-brand d-flex align-items-center">
                 <img

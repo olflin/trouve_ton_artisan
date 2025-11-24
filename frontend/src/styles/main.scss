@@ -30,7 +30,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* Ne pas centrer tout le layout horizontalement, pour que main occupe toute la largeur */
+  align-items: stretch;
 }
 
 main {

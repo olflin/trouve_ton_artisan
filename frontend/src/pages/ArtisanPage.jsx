@@ -125,11 +125,24 @@ function ArtisanPage() {
            </article>
         </div>
       </div>
-
       <div className="row">
         <div className="col-12 col-lg-6 mb-4 mb-lg-0">
-           <section>
-            <h2 className="h2 fw-bold mb-3">Formulaire de contact</h2>
+          <section>
+            <h2 className="h2 fw-bold mb-5">À propos</h2>
+            <p className="mb-0 small">{artisan.a_propos || "Cet artisan n'a pas encore renseigné de description."}</p>
+            {artisan.website && (
+              <p className="mt-3 small">
+                <a href={artisan.website} target="_blank" rel="noopener noreferrer" className="text-primary">
+                  {artisan.website}
+                </a>
+              </p>
+            )}
+          </section>
+        </div>
+
+        <div className="col-12 col-lg-6 mb-4 mb-lg-0">
+          <section>
+            <h2 className="h2 fw-bold mb-5">Formulaire de contact</h2>
             {formError && <p className="text-danger small mb-2">{formError}</p>}
             {successMessage && <p className="text-success small mb-2">{successMessage}</p>}
 
@@ -160,20 +173,6 @@ function ArtisanPage() {
                 </button>
               </div>
             </form>
-          </section>
-        </div>
-
-        <div className="col-12 col-lg-6">
-          <section>
-            <h2 className="h2 fw-bold mb-2">À propos</h2>
-            <p className="mb-0 small">{artisan.a_propos || "Cet artisan n'a pas encore renseigné de description."}</p>
-             {artisan.website && (
-                <p className="mt-3 small">
-                    <a href={artisan.website} target="_blank" rel="noopener noreferrer" className="text-primary">
-                        {artisan.website}
-                    </a>
-                </p>
-             )}
           </section>
         </div>
       </div>
