@@ -105,7 +105,7 @@ function ArtisanPage() {
       <div className="row mb-5">
         <div className="col-12 col-lg-6 mb-4 mb-lg-0 text-center">
           <img
-            src="/favicon.png"
+            src={artisan.photo_url || '/favicon.png'}
             alt="Avatar artisan"
             style={{ width: '200px', height: '200px', objectFit: 'contain' }}
           />
