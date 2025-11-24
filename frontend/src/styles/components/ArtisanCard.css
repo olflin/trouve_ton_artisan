@@ -8,15 +8,55 @@
     gap: 12px;
 
     background: var(--graylight);
-    border: 1px solid var(--graydark);
+    border: 2px solid var(--graydark);
     border-radius: 8px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, border-width 0.3s ease;
 }
 
 .card:hover {
-    border-color: var(--primarybluedark); /* Blue for hover */
+    border-width: 4px;
+    border-color: var(--primaryblue); /* Blue for hover */
 }
 
 .card.top-artisan {
+    border-width: 4px;
     border-color: var(--green); /* Green for TOP artisan */
+}
+
+.card.top-artisan:hover {
+    border-width: 4px;
+    border-color: var(--primaryblue);
+}
+
+.card-rating {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.card-star {
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #ffc700; /* couleur par défaut pour les étoiles pleines */
+}
+
+.card-star--full {
+    color: #ffc700;
+}
+
+.card-star--empty {
+    color: transparent;
+    -webkit-text-stroke: 1px #ffc700;
+}
+
+.card-star--half {
+    color: transparent;
+    -webkit-text-stroke: 1px #ffc700;
+    background: linear-gradient(90deg, #ffc700 50%, transparent 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.top-artisan-label {
+    color: var(--green);
 }
