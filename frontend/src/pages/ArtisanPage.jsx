@@ -143,28 +143,30 @@ function ArtisanPage() {
         <div className="col-12 col-lg-6 mb-4 mb-lg-0">
           <section>
             <h2 className="h2 fw-bold mb-5">Formulaire de contact</h2>
-            {formError && <p className="text-danger small mb-2">{formError}</p>}
-            {successMessage && <p className="text-success small mb-2">{successMessage}</p>}
+            <div aria-live="polite" role="status" className="mb-2">
+              {formError && <p className="text-danger small mb-0">{formError}</p>}
+              {successMessage && <p className="text-success small mb-0">{successMessage}</p>}
+            </div>
 
             <form onSubmit={handleSubmit} className="row g-3">
               <div className="col-12">
                 <label htmlFor="contact-nom" className="form-label small">Nom</label>
-                <input id="contact-nom" name="nom" type="text" className="form-control" value={form.nom} onChange={handleChange} />
+                <input id="contact-nom" name="nom" type="text" className="form-control" value={form.nom} onChange={handleChange} required />
               </div>
 
               <div className="col-12">
                 <label htmlFor="contact-email" className="form-label small">Email</label>
-                <input id="contact-email" name="email" type="email" className="form-control" value={form.email} onChange={handleChange} />
+                <input id="contact-email" name="email" type="email" className="form-control" value={form.email} onChange={handleChange} required />
               </div>
 
               <div className="col-12">
                 <label htmlFor="contact-objet" className="form-label small">Objet</label>
-                <input id="contact-objet" name="objet" type="text" className="form-control" value={form.objet} onChange={handleChange} />
+                <input id="contact-objet" name="objet" type="text" className="form-control" value={form.objet} onChange={handleChange} required />
               </div>
 
               <div className="col-12">
                 <label htmlFor="contact-message" className="form-label small">Message</label>
-                <textarea id="contact-message" name="message" className="form-control" rows="4" value={form.message} onChange={handleChange} />
+                <textarea id="contact-message" name="message" className="form-control" rows="4" value={form.message} onChange={handleChange} required />
               </div>
 
               <div className="col-12">
