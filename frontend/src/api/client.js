@@ -1,5 +1,5 @@
-const API_BASE_URL = 'http://localhost:4000/api';
-const API_KEY = 'une_cle_simple'; // clé côté front pour accéder à l API
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+const API_KEY = import.meta.env.VITE_API_KEY || 'une_cle_simple';
 
 async function handleResponse(response) {
   if (!response.ok) {
